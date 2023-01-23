@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "6166737369",
+    "project_id": "theatre-time",
+    "storage_bucket": "theatre-time.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6166737369:android:21030b0cc92a192c2d69c8",
+        "android_client_info": {
+          "package_name": "com.sannidhya.theatretime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6166737369-4611jfm6mfcvc59740voh55vpegg8p6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1cG0eRJt3uLtK16xqMwqNejCjQ5SB_hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6166737369-4611jfm6mfcvc59740voh55vpegg8p6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
