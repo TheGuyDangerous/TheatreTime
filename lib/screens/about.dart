@@ -39,7 +39,7 @@ class AboutPage extends StatelessWidget {
                   ],
                 ),
                 const Text(
-                  'Cinemax 1.3.0',
+                  'TheatreTime 1.3.0',
                   style: TextStyle(
                     fontSize: 30.0,
                   ),
@@ -194,7 +194,7 @@ class PlatformIcon extends StatelessWidget {
       },
       child: Icon(
         platformIcon,
-        color: const Color(0xFFF57C00),
+        color: const Color(0xFFECB718),
       ),
     );
   }

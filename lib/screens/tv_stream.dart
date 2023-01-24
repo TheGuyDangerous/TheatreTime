@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -44,7 +45,7 @@ class TVStreamState extends State<TVStream> {
 
     pullToRefreshController = PullToRefreshController(
       options: PullToRefreshOptions(
-        color: const Color(0xFFF57C00),
+        color: const Color(0xFFECB718),
       ),
       onRefresh: () async {
         if (Platform.isAndroid) {
@@ -167,7 +168,7 @@ class TVStreamState extends State<TVStream> {
               progress < 1.0
                   ? LinearProgressIndicator(
                       value: progress,
-                      color: const Color(0xFFF57C00),
+                      color: const Color(0xFFECB718),
                       backgroundColor: Colors.black,
                     )
                   : Container(),

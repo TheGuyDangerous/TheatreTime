@@ -173,7 +173,7 @@ class _HeroPhotoViewState extends State<HeroPhotoView> {
                       minimumSize: MaterialStateProperty.all(
                           const Size(double.infinity, 50)),
                       backgroundColor:
-                          MaterialStateProperty.all(const Color(0xFFF57C00))),
+                          MaterialStateProperty.all(const Color(0xFFECB718))),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [

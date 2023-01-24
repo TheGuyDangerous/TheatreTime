@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../constants/api_constants.dart';
 import '../constants/app_constants.dart';
 import '../models/choice_chip.dart';
@@ -73,7 +74,7 @@ class _DiscoverTVTabState extends State<DiscoverTVTab> {
               spacing: 3,
               children: sortChoiceChipData.sortChoiceChip
                   .map((SortChoiceChipWidget choiceChipWidget) => ChoiceChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: const Color(0xFFECB718),
                         label: Text(choiceChipWidget.name),
                         selected: sortValue == choiceChipWidget.index,
                         onSelected: (bool selected) {
@@ -94,7 +95,7 @@ class _DiscoverTVTabState extends State<DiscoverTVTab> {
               spacing: 3,
               children: tvSeriesStatusData.tvSeriesStatusList
                   .map((TVSeriesStatus tvSeriesStatus) => ChoiceChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: const Color(0xFFECB718),
                         label: Text(tvSeriesStatus.statusName),
                         selected: tvStatusValue == tvSeriesStatus.index,
                         onSelected: (bool selected) {
@@ -131,7 +132,7 @@ class _DiscoverTVTabState extends State<DiscoverTVTab> {
                       style: kTextHeaderStyle,
                     ),
                     Checkbox(
-                      activeColor: const Color(0xFFF57C00),
+                      activeColor: const Color(0xFFECB718),
                       value: enableOptionForSliderMovie,
                       onChanged: (newValue) {
                         setState(() {
@@ -172,7 +173,7 @@ class _DiscoverTVTabState extends State<DiscoverTVTab> {
               children: tvGenreFilterChipData.tvGenreList
                   .map((TVGenreFilterChipWidget tvGenreFilterChipWidget) =>
                       FilterChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: const Color(0xFFECB718),
                         label: Text(tvGenreFilterChipWidget.genreName),
                         selected: genreNames
                             .contains(tvGenreFilterChipWidget.genreName),
@@ -207,7 +208,7 @@ class _DiscoverTVTabState extends State<DiscoverTVTab> {
                   .map((WatchProvidersFilterChipWidget
                           watchProvidersFilterChipWidget) =>
                       FilterChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: const Color(0xFFECB718),
                         label: Text(watchProvidersFilterChipWidget.networkName),
                         selected: providersName.contains(
                             watchProvidersFilterChipWidget.networkName),
@@ -240,7 +241,7 @@ class _DiscoverTVTabState extends State<DiscoverTVTab> {
                       minimumSize: MaterialStateProperty.all(
                           const Size(double.infinity, 50)),
                       backgroundColor:
-                          MaterialStateProperty.all(const Color(0xFFF57C00))),
+                          MaterialStateProperty.all(const Color(0xFFECB718))),
                   onPressed: () {
                     joinGenreStrings();
                     joinProviderStrings();

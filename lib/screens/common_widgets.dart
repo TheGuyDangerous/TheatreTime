@@ -3,16 +3,13 @@
 import 'package:TheatreTime/provider/darktheme_provider.dart';
 import 'package:TheatreTime/provider/mixpanel_provider.dart';
 import 'package:TheatreTime/screens/settings.dart';
-import 'package:TheatreTime/screens/update_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../constants/api_constants.dart';
-import 'about.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({
@@ -46,7 +43,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   child: DrawerHeader(
                     decoration: BoxDecoration(
                       color: isDark
-                          ? const Color(0xFFFFFFFF)
+                          ? const Color(0xFF363636)
                           : const Color(0xFF363636),
                     ),
                     child: Image.asset('assets/images/logo_shadow.png'),
@@ -55,7 +52,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ListTile(
                   leading: const Icon(
                     Icons.settings,
-                    color: Color(0xFFF57C00),
+                    color: Color(0xFFECB718),
                   ),
                   title: const Text('Settings'),
                   onTap: () {
@@ -63,46 +60,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         MaterialPageRoute(builder: ((context) {
                       return const Settings();
                     })));
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.info_outline,
-                    color: Color(0xFFF57C00),
-                  ),
-                  title: const Text('About'),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const AboutPage();
-                    }));
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.update,
-                    color: Color(0xFFF57C00),
-                  ),
-                  title: const Text('Check for an update'),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) {
-                      return const UpdateScreen();
-                    })));
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.share_sharp,
-                    color: Color(0xFFF57C00),
-                  ),
-                  title: const Text('Share the app'),
-                  onTap: () async {
-                    mixpanel.track('Share button data', properties: {
-                      'Sahre button click': 'Share',
-                    });
-                    await Share.share(
-                        'Download the Cinemax app for free and watch your favorite movies and TV shows for free! Download the app from the link below.\nhttps://cinemax.rf.gd/');
                   },
                 ),
               ],

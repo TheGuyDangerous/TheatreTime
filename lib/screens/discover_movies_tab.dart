@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../constants/api_constants.dart';
 import '../constants/app_constants.dart';
 import '../models/choice_chip.dart';
@@ -70,7 +71,7 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
               spacing: 3,
               children: sortChoiceChipData.sortChoiceChip
                   .map((SortChoiceChipWidget choiceChipWidget) => ChoiceChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: Colors.transparent,
                         label: Text(choiceChipWidget.name),
                         selected: sortValue == choiceChipWidget.index,
                         onSelected: (bool selected) {
@@ -92,7 +93,7 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
               children: adultChoiceChipData.adultChoiceChip
                   .map((AdultChoiceChipWidget adultChoiceChipWidget) =>
                       ChoiceChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: const Color(0xFFECB718),
                         label: Text(adultChoiceChipWidget.name),
                         selected: adultValue == adultChoiceChipWidget.index,
                         onSelected: (bool selected) {
@@ -130,7 +131,7 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
                       style: kTextHeaderStyle,
                     ),
                     Checkbox(
-                      activeColor: const Color(0xFFF57C00),
+                      activeColor: const Color(0xFFECB718),
                       value: enableOptionForSliderMovie,
                       onChanged: (newValue) {
                         setState(() {
@@ -172,7 +173,7 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
                   .map(
                       (MovieGenreFilterChipWidget movieGenreFilterChipWidget) =>
                           FilterChip(
-                            selectedColor: const Color(0xFFF57C00),
+                            selectedColor: const Color(0xFFECB718),
                             label: Text(movieGenreFilterChipWidget.genreName),
                             selected: genreNames
                                 .contains(movieGenreFilterChipWidget.genreName),
@@ -209,7 +210,7 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
                   .map((WatchProvidersFilterChipWidget
                           watchProvidersFilterChipWidget) =>
                       FilterChip(
-                        selectedColor: const Color(0xFFF57C00),
+                        selectedColor: const Color(0xFFECB718),
                         label: Text(watchProvidersFilterChipWidget.networkName),
                         selected: providersName.contains(
                             watchProvidersFilterChipWidget.networkName),
@@ -242,7 +243,7 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
                       minimumSize: MaterialStateProperty.all(
                           const Size(double.infinity, 50)),
                       backgroundColor:
-                          MaterialStateProperty.all(const Color(0xFFF57C00))),
+                          MaterialStateProperty.all(const Color(0xFFECB718))),
                   onPressed: () {
                     joinGenreStrings();
                     joinProviderStrings();
@@ -262,9 +263,16 @@ class _DiscoverMoviesTabState extends State<DiscoverMoviesTab> {
                     children: const [
                       Padding(
                         padding: EdgeInsets.only(right: 8.0),
-                        child: Text('Discover'),
+                        child: Text('Discover',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold)),
                       ),
-                      Icon(FontAwesomeIcons.wandMagicSparkles)
+                      Icon(
+                        FontAwesomeIcons.wandMagicSparkles,
+                        color: Colors.white,
+                      )
                     ],
                   )),
             )

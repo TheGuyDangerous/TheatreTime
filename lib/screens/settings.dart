@@ -24,18 +24,28 @@ class _SettingsState extends State<Settings> {
     final defaultHomeValue = Provider.of<DeafultHomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text('Settings',
+            style: TextStyle(
+              color: isDark ? const Color(0xFFF7F7F7) : const Color(0xFF202124),
+            )),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: isDark ? const Color(0xFFF7F7F7) : const Color(0xFF202124),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         color: isDark ? const Color(0xFF202124) : const Color(0xFFF7F7F7),
         child: Column(
           children: [
             SwitchListTile(
-              activeColor: const Color(0xFFF57C00),
+              activeColor: const Color(0xFFECB718),
               value: adultChange.isAdult,
               secondary: const Icon(
                 Icons.explicit,
-                color: Color(0xFFF57C00),
+                color: Color(0xFFECB718),
               ),
               title: const Text('Include Adult'),
               onChanged: (bool value) {
@@ -45,11 +55,11 @@ class _SettingsState extends State<Settings> {
               },
             ),
             SwitchListTile(
-              activeColor: const Color(0xFFF57C00),
+              activeColor: const Color(0xFFECB718),
               value: themeChange.darktheme,
               secondary: const Icon(
                 Icons.dark_mode,
-                color: Color(0xFFF57C00),
+                color: Color(0xFFECB718),
               ),
               title: const Text('Dark mode'),
               onChanged: (bool value) {
@@ -61,7 +71,7 @@ class _SettingsState extends State<Settings> {
             ListTile(
               leading: const Icon(
                 Icons.image,
-                color: Color(0xFFF57C00),
+                color: Color(0xFFECB718),
               ),
               title: const Text('Image quality'),
               trailing: DropdownButton(
@@ -86,7 +96,7 @@ class _SettingsState extends State<Settings> {
             ListTile(
               leading: const Icon(
                 Icons.phone_android_sharp,
-                color: Color(0xFFF57C00),
+                color: Color(0xFFECB718),
               ),
               title: const Text('Default home screen'),
               trailing: DropdownButton(

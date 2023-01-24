@@ -1,18 +1,22 @@
 // ignore_for_file: avoid_unnecessary_containers
 import 'dart:convert';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:TheatreTime/models/dropdown_select.dart';
 import 'package:TheatreTime/models/filter_chip.dart';
 import 'package:TheatreTime/provider/adultmode_provider.dart';
 import 'package:TheatreTime/screens/guest_star_detail.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import '../provider/darktheme_provider.dart';
-import '../provider/imagequality_provider.dart';
-import '../provider/mixpanel_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '/api/endpoints.dart';
 import '/constants/api_constants.dart';
-import '../constants/app_constants.dart';
 import '/models/credits.dart';
 import '/models/function.dart';
 import '/models/genres.dart';
@@ -25,21 +29,19 @@ import '/models/watch_providers.dart';
 import '/screens/cast_detail.dart';
 import '/screens/createdby_detail.dart';
 import '/screens/episode_detail.dart';
+import '/screens/genre_tv.dart';
 import '/screens/seasons_detail.dart';
 import '/screens/streaming_services_tvshows.dart';
 import '/screens/tv_detail.dart';
-import '/screens/genre_tv.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:http/http.dart' as http;
-import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../constants/app_constants.dart';
+import '../provider/darktheme_provider.dart';
+import '../provider/imagequality_provider.dart';
+import '../provider/mixpanel_provider.dart';
+import 'common_widgets.dart';
 import 'crew_detail.dart';
-import 'photoview.dart';
 import 'main_tv_list.dart';
 import 'movie_widgets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'common_widgets.dart';
+import 'photoview.dart';
 
 class MainTVDisplay extends StatefulWidget {
   const MainTVDisplay({
@@ -263,7 +265,9 @@ class DiscoverTVState extends State<DiscoverTV>
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(
+                            color: Color(0x0DF57C00),
+                          )))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;
@@ -416,8 +420,11 @@ class ScrollingTVState extends State<ScrollingTV>
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
-                              side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                              side: BorderSide(
+                                color: isDark
+                                    ? const Color(0xFFF7F7F7)
+                                    : const Color(0xFF202124),
+                              )))),
                   child: const Padding(
                     padding: EdgeInsets.only(left: 8.0, right: 8.0),
                     child: Text('View all'),
@@ -581,7 +588,7 @@ class ScrollingTVState extends State<ScrollingTV>
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(color: Color(0xFFECB718))))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;
@@ -2494,7 +2501,7 @@ class TVCastTabState extends State<TVCastTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -2752,7 +2759,7 @@ class TVSeasonsTabState extends State<TVSeasonsTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -2988,7 +2995,7 @@ class TVCrewTabState extends State<TVCrewTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -3231,7 +3238,7 @@ class TVRecommendationsTabState extends State<TVRecommendationsTab>
                                                       children: <Widget>[
                                                         const Icon(Icons.star,
                                                             color: Color(
-                                                                0xFFF57C00)),
+                                                                0xFFECB718)),
                                                         Text(
                                                           tvList![index]
                                                               .voteAverage!
@@ -3298,7 +3305,7 @@ class TVRecommendationsTabState extends State<TVRecommendationsTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -3539,7 +3546,7 @@ class SimilarTVTabState extends State<SimilarTVTab>
                                                       children: <Widget>[
                                                         const Icon(Icons.star,
                                                             color: Color(
-                                                                0xFFF57C00)),
+                                                                0xFFECB718)),
                                                         Text(
                                                           tvList![index]
                                                               .voteAverage!
@@ -3606,7 +3613,7 @@ class SimilarTVTabState extends State<SimilarTVTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -3681,7 +3688,7 @@ class TVGenreDisplayState extends State<TVGenreDisplay>
                                 side: const BorderSide(
                                     width: 2,
                                     style: BorderStyle.solid,
-                                    color: Color(0xFFF57C00)),
+                                    color: Color(0xFFECB718)),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               label: Text(
@@ -3937,7 +3944,7 @@ class ParticularGenreTVState extends State<ParticularGenreTV> {
                                                                 const Icon(
                                                                     Icons.star,
                                                                     color: Color(
-                                                                        0xFFF57C00)),
+                                                                        0xFFECB718)),
                                                                 Text(
                                                                   tvList![index]
                                                                       .voteAverage!
@@ -4008,7 +4015,7 @@ class ParticularGenreTVState extends State<ParticularGenreTV> {
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -4286,7 +4293,7 @@ class TVSocialLinksState extends State<TVSocialLinks> {
                                         externalLinks!.facebookUsername!,
                                 icon: const Icon(
                                   SocialIcons.facebook_f,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -4298,7 +4305,7 @@ class TVSocialLinksState extends State<TVSocialLinks> {
                                         externalLinks!.instagramUsername!,
                                 icon: const Icon(
                                   SocialIcons.instagram,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -4309,7 +4316,7 @@ class TVSocialLinksState extends State<TVSocialLinks> {
                                         externalLinks!.twitterUsername!,
                                 icon: const Icon(
                                   SocialIcons.twitter,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -4649,7 +4656,7 @@ class EpisodeListWidgetState extends State<EpisodeListWidget>
                             ),
                           ),
                           const Divider(
-                            color: Color(0xFFF57C00),
+                            color: Color(0xFFECB718),
                             thickness: 1.5,
                             endIndent: 30,
                             indent: 5,
@@ -4829,7 +4836,7 @@ class EpisodeListWidgetState extends State<EpisodeListWidget>
                                       ],
                                     ),
                                     const Divider(
-                                      color: Color(0xFFF57C00),
+                                      color: Color(0xFFECB718),
                                       thickness: 1.5,
                                       endIndent: 30,
                                       indent: 5,
@@ -4867,7 +4874,7 @@ class EpisodeListWidgetState extends State<EpisodeListWidget>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -4947,7 +4954,7 @@ class _TVWatchProvidersDetailsState extends State<TVWatchProvidersDetails>
                     child: TabBar(
                       controller: tabController,
                       isScrollable: true,
-                      indicatorColor: const Color(0xFFF57C00),
+                      indicatorColor: const Color(0xFFECB718),
                       indicatorWeight: 3,
                       unselectedLabelColor: Colors.white54,
                       labelColor: Colors.white,
@@ -5106,7 +5113,7 @@ class _TVWatchProvidersDetailsState extends State<TVWatchProvidersDetails>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -5208,7 +5215,7 @@ class TVGenreListGridState extends State<TVGenreListGrid>
                                           width: 125,
                                           alignment: Alignment.center,
                                           decoration: BoxDecoration(
-                                              color: const Color(0xFFF57C00),
+                                              color: const Color(0xFFECB718),
                                               borderRadius:
                                                   BorderRadius.circular(15)),
                                           child: Text(
@@ -5254,7 +5261,7 @@ class TVGenreListGridState extends State<TVGenreListGrid>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -5394,7 +5401,7 @@ class TVStreamingServicesWidget extends StatelessWidget {
           height: 60,
           width: 200,
           decoration: BoxDecoration(
-              color: const Color(0xFFF57C00),
+              color: const Color(0xFFECB718),
               borderRadius: BorderRadius.circular(15)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -5652,7 +5659,7 @@ class ParticularStreamingServiceTVShowsState
                                                                 const Icon(
                                                                     Icons.star,
                                                                     color: Color(
-                                                                        0xFFF57C00)),
+                                                                        0xFFECB718)),
                                                                 Text(
                                                                   tvList![index]
                                                                       .voteAverage!
@@ -5723,7 +5730,7 @@ class ParticularStreamingServiceTVShowsState
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -5967,7 +5974,7 @@ class TVEpisodeCastTabState extends State<TVEpisodeCastTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -6219,7 +6226,7 @@ class TVEpisodeGuestStarsTabState extends State<TVEpisodeGuestStarsTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;

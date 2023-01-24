@@ -1,7 +1,7 @@
 // import 'dart:io';
 
 // import 'package:chewie/chewie.dart';
-// import 'package:cinemax/screens/movie_video_loader.dart';
+// import 'package:TheatreTime/screens/movie_video_loader.dart';
 // import 'package:flutter/material.dart';
 // import 'package:subtitle/subtitle.dart' as sub;
 // import 'package:video_player/video_player.dart';
@@ -455,9 +455,9 @@
 // }
 
 import 'package:TheatreTime/provider/darktheme_provider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pod_player/pod_player.dart';
-import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
 class Player extends StatefulWidget {

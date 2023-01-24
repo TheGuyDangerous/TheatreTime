@@ -27,35 +27,59 @@ class _DiscoverPageState extends State<DiscoverPage>
     return Column(
       children: [
         Container(
-          color: const Color(0xFFF57C00),
+          color: isDark ? const Color(0xFF202124) : const Color(0xFFF7F7F7),
           width: double.infinity,
           child: TabBar(
             tabs: [
               Tab(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(right: 8.0),
-                    child: Icon(Icons.movie_creation_rounded),
-                  ),
-                  Text(
-                    'Movies',
-                  ),
-                ],
-              )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Icon(
+                        Icons.movie_creation_rounded,
+                        color: isDark
+                            ? const Color(0xFFF7F7F7)
+                            : const Color(0xFF202124),
+                      ),
+                    ),
+                    Text(
+                      'Movies',
+                      style: TextStyle(
+                          color: isDark
+                              ? const Color(0xFFF7F7F7)
+                              : const Color(0xFF202124),
+                          fontFamily: 'PoppinsSB',
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
               Tab(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Padding(
-                      padding: EdgeInsets.only(right: 8.0),
-                      child: Icon(Icons.live_tv_rounded)),
-                  Text(
-                    'TV Series',
-                  ),
-                ],
-              ))
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Icons.live_tv_rounded,
+                          color: isDark
+                              ? const Color(0xFFF7F7F7)
+                              : const Color(0xFF202124),
+                        )),
+                    Text(
+                      'TV Series',
+                      style: TextStyle(
+                          color: isDark
+                              ? const Color(0xFFF7F7F7)
+                              : const Color(0xFF202124),
+                          fontFamily: 'PoppinsSB',
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
             ],
             indicatorColor: isDark ? Colors.white : Colors.black,
             indicatorWeight: 3,

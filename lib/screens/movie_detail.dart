@@ -102,10 +102,10 @@ class MovieDetailPageState extends State<MovieDetailPage>
                               begin: FractionalOffset.bottomCenter,
                               end: FractionalOffset.topCenter,
                               colors: [
-                                const Color(0xFFF57C00),
-                                const Color(0xFFF57C00).withOpacity(0.3),
-                                const Color(0xFFF57C00).withOpacity(0.2),
-                                const Color(0xFFF57C00).withOpacity(0.1),
+                                const Color(0xFFECB718),
+                                const Color(0xFFECB718).withOpacity(0.3),
+                                const Color(0xFFECB718).withOpacity(0.2),
+                                const Color(0xFFECB718).withOpacity(0.1),
                               ],
                               stops: const [
                                 0.0,
@@ -119,7 +119,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
               ),
               Expanded(
                 child: Container(
-                  color: const Color(0xFFF57C00),
+                  color: const Color(0xFFECB718),
                 ),
               )
             ],
@@ -137,7 +137,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
                         color: isDark ? Colors.black38 : Colors.white38),
                     child: IconButton(
                       icon: const Icon(Icons.arrow_back,
-                          color: Color(0xFFF57C00)),
+                          color: Color(0xFFECB718)),
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -218,7 +218,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
                                                               Icons.star,
                                                               size: 15,
                                                               color: Color(
-                                                                  0xFFF57C00),
+                                                                  0xFFECB718),
                                                             ),
                                                           ),
                                                           Text(
@@ -273,7 +273,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
                                 ),
                                 TabBar(
                                   isScrollable: true,
-                                  indicatorColor: const Color(0xFFF57C00),
+                                  indicatorColor: const Color(0xFFECB718),
                                   indicatorWeight: 3,
                                   tabs: [
                                     Tab(
@@ -376,7 +376,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
                                                                   'Poppins'),
                                                           colorClickableText:
                                                               const Color(
-                                                                  0xFFF57C00),
+                                                                  0xFFECB718),
                                                           trimMode:
                                                               TrimMode.Line,
                                                           trimCollapsedText:
@@ -387,7 +387,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
                                                               const TextStyle(
                                                                   fontSize: 14,
                                                                   color: Color(
-                                                                      0xFFF57C00),
+                                                                      0xFFECB718),
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold),
@@ -395,7 +395,7 @@ class MovieDetailPageState extends State<MovieDetailPage>
                                                               const TextStyle(
                                                                   fontSize: 14,
                                                                   color: Color(
-                                                                      0xFFF57C00),
+                                                                      0xFFECB718),
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold),

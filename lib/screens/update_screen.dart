@@ -1,16 +1,18 @@
 // ignore_for_file: must_be_immutable
 
 import 'dart:io';
+
 import 'package:TheatreTime/constants/api_constants.dart';
 import 'package:TheatreTime/constants/app_constants.dart';
 import 'package:TheatreTime/models/function.dart';
 import 'package:TheatreTime/models/update.dart';
 import 'package:flutter/material.dart';
-import 'package:open_file_plus/open_file_plus.dart';
-import 'package:provider/provider.dart';
-import '../provider/darktheme_provider.dart';
 import 'package:flutter_download_manager/flutter_download_manager.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/darktheme_provider.dart';
 
 class UpdateScreen extends StatefulWidget {
   const UpdateScreen({Key? key}) : super(key: key);
@@ -173,7 +175,7 @@ class _ListItemState extends State<ListItem> {
       child: Container(
         decoration: BoxDecoration(
             border: Border.all(
-              color: const Color(0xFFF57C00),
+              color: const Color(0xFFECB718),
             ),
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         padding: const EdgeInsets.all(8.0),
@@ -231,7 +233,7 @@ class _ListItemState extends State<ListItem> {
                         color: widget.downloadTask!.status.value ==
                                 DownloadStatus.paused
                             ? Colors.grey
-                            : const Color(0xFFF57C00),
+                            : const Color(0xFFECB718),
                       ),
                     );
                   }),

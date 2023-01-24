@@ -49,7 +49,7 @@ class _LandingScreenState extends State<LandingScreen> {
             width: 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFFF57C00),
+              color: const Color(0xFFECB718),
             ),
             child: Center(
                 child: SizedBox(
@@ -77,7 +77,7 @@ class _LandingScreenState extends State<LandingScreen> {
                         ),
                       ),
                     ),
-                    const Text('Thousands of:',
+                    const Text('Theatre Time',
                         style: TextStyle(color: Colors.black)),
                     SizedBox(
                       height: 75,
@@ -114,17 +114,6 @@ class _LandingScreenState extends State<LandingScreen> {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        'Unlimited, for free, any time on Cinemax',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
@@ -135,7 +124,7 @@ class _LandingScreenState extends State<LandingScreen> {
                             updateFirstRunData();
                             Navigator.pushReplacement(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const CinemaxHomePage();
+                              return const TheatreHomePage();
                             }));
                           },
                           child: const Text(

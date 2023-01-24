@@ -272,7 +272,7 @@ class MainTVListState extends State<MainTVList> {
                                                                       Icons
                                                                           .star,
                                                                       color: Color(
-                                                                          0xFFF57C00)),
+                                                                          0xFFECB718)),
                                                                   Text(
                                                                     tvList![index]
                                                                         .voteAverage!
@@ -342,7 +342,7 @@ class MainTVListState extends State<MainTVList> {
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(color: Color(0xFFECB718))))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;

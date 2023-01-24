@@ -48,7 +48,7 @@ class Search extends SearchDelegate<String> {
             color: isDark ? Colors.white : Colors.black, fontFamily: 'Poppins'),
       ),
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: const Color(0xFFF57C00),
+        cursorColor: const Color(0xFFECB718),
         selectionHandleColor:
             isDark ? const Color(0xFFFFFFFF) : const Color(0xFF000000),
         selectionColor: isDark ? Colors.white12 : Colors.black12,
@@ -62,7 +62,7 @@ class Search extends SearchDelegate<String> {
       IconButton(
         icon: const Icon(
           Icons.clear,
-          color: Color(0xFFF57C00),
+          color: Color(0xFFECB718),
         ),
         onPressed: () {
           query = '';
@@ -74,7 +74,7 @@ class Search extends SearchDelegate<String> {
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back, color: Color(0xFFF57C00)),
+      icon: const Icon(Icons.arrow_back, color: Color(0xFFECB718)),
       onPressed: () {
         close(context, '');
       },
@@ -98,7 +98,7 @@ class Search extends SearchDelegate<String> {
           child: Column(
             children: [
               TabBar(
-                indicatorColor: const Color(0xFFF57C00),
+                indicatorColor: const Color(0xFFECB718),
                 tabs: [
                   Tab(
                     child: Text('Movies',
@@ -510,7 +510,7 @@ class Search extends SearchDelegate<String> {
                                           Row(
                                             children: <Widget>[
                                               const Icon(Icons.star,
-                                                  color: Color(0xFFF57C00)),
+                                                  color: Color(0xFFECB718)),
                                               Text(
                                                 moviesList[index]
                                                     .voteAverage!
@@ -657,7 +657,7 @@ class Search extends SearchDelegate<String> {
                                           Row(
                                             children: <Widget>[
                                               const Icon(Icons.star,
-                                                  color: Color(0xFFF57C00)),
+                                                  color: Color(0xFFECB718)),
                                               Text(
                                                 tvList[index]
                                                     .voteAverage!

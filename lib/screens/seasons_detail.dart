@@ -109,10 +109,10 @@ class SeasonsDetailState extends State<SeasonsDetail>
                               begin: FractionalOffset.bottomCenter,
                               end: FractionalOffset.topCenter,
                               colors: [
-                                const Color(0xFFF57C00),
-                                const Color(0xFFF57C00).withOpacity(0.3),
-                                const Color(0xFFF57C00).withOpacity(0.2),
-                                const Color(0xFFF57C00).withOpacity(0.1),
+                                const Color(0xFFECB718),
+                                const Color(0xFFECB718).withOpacity(0.3),
+                                const Color(0xFFECB718).withOpacity(0.2),
+                                const Color(0xFFECB718).withOpacity(0.1),
                               ],
                               stops: const [
                                 0.0,
@@ -126,7 +126,7 @@ class SeasonsDetailState extends State<SeasonsDetail>
               ),
               Expanded(
                 child: Container(
-                  color: const Color(0xFFF57C00),
+                  color: const Color(0xFFECB718),
                 ),
               )
             ],
@@ -145,7 +145,7 @@ class SeasonsDetailState extends State<SeasonsDetail>
                     child: IconButton(
                       icon: const Icon(
                         Icons.arrow_back,
-                        color: Color(0xFFF57C00),
+                        color: Color(0xFFECB718),
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -225,7 +225,7 @@ class SeasonsDetailState extends State<SeasonsDetail>
                                 Center(
                                   child: TabBar(
                                     isScrollable: true,
-                                    indicatorColor: const Color(0xFFF57C00),
+                                    indicatorColor: const Color(0xFFECB718),
                                     indicatorWeight: 3,
                                     unselectedLabelColor: Colors.white54,
                                     labelColor: Colors.white,
@@ -307,7 +307,7 @@ class SeasonsDetailState extends State<SeasonsDetail>
                                                     style: const TextStyle(
                                                         fontFamily: 'Poppins'),
                                                     colorClickableText:
-                                                        const Color(0xFFF57C00),
+                                                        const Color(0xFFECB718),
                                                     trimMode: TrimMode.Line,
                                                     trimCollapsedText:
                                                         'read more',
@@ -316,13 +316,13 @@ class SeasonsDetailState extends State<SeasonsDetail>
                                                     lessStyle: const TextStyle(
                                                         fontSize: 14,
                                                         color:
-                                                            Color(0xFFF57C00),
+                                                            Color(0xFFECB718),
                                                         fontWeight:
                                                             FontWeight.bold),
                                                     moreStyle: const TextStyle(
                                                         fontSize: 14,
                                                         color:
-                                                            Color(0xFFF57C00),
+                                                            Color(0xFFECB718),
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),

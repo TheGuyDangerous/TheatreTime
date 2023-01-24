@@ -7,7 +7,6 @@ import 'package:TheatreTime/provider/mixpanel_provider.dart';
 import 'package:TheatreTime/screens/discover.dart';
 import 'package:TheatreTime/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
-//import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -18,7 +17,6 @@ import '/screens/tv_widgets.dart';
 import 'provider/adultmode_provider.dart';
 import 'screens/common_widgets.dart';
 import 'screens/movie_widgets.dart';
-import 'screens/news_screen.dart';
 import 'screens/search_view.dart';
 
 DarkthemeProvider themeChangeProvider = DarkthemeProvider();
@@ -36,7 +34,7 @@ void main() async {
   await deafultHomeProvider.getCurrentDefaultScreen();
   await imagequalityProvider.getCurrentImageQuality();
 
-  runApp(Cinemax(
+  runApp(TheatreTime(
     theme: themeChangeProvider,
     mixpanel: mixpanelProvider,
     adult: adultmodeProvider,
@@ -45,8 +43,8 @@ void main() async {
   ));
 }
 
-class Cinemax extends StatefulWidget {
-  const Cinemax(
+class TheatreTime extends StatefulWidget {
+  const TheatreTime(
       {required this.theme,
       required this.mixpanel,
       required this.adult,
@@ -61,10 +59,10 @@ class Cinemax extends StatefulWidget {
   final ImagequalityProvider image;
 
   @override
-  State<Cinemax> createState() => _CinemaxState();
+  State<TheatreTime> createState() => _TheatreTimeState();
 }
 
-class _CinemaxState extends State<Cinemax>
+class _TheatreTimeState extends State<TheatreTime>
     with ChangeNotifier, WidgetsBindingObserver {
   bool? isFirstLaunch;
 
@@ -119,7 +117,7 @@ class _CinemaxState extends State<Cinemax>
           final isDark = Provider.of<DarkthemeProvider>(context).darktheme;
           return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Cinemax',
+              title: 'TheatreTime',
               theme: Styles.themeData(themeChangeProvider.darktheme, context),
               home: isFirstLaunch == null
                   ? Scaffold(
@@ -132,27 +130,27 @@ class _CinemaxState extends State<Cinemax>
                               height: 50,
                               width: 50,
                               child: CircularProgressIndicator(
-                                  color: Color(0xFFF57C00))),
+                                  color: Color(0xFF000000))),
                         ),
                       ),
                     )
                   : isFirstLaunch == true
                       ? const LandingScreen()
-                      : const CinemaxHomePage());
+                      : const TheatreHomePage());
         }));
   }
 }
 
-class CinemaxHomePage extends StatefulWidget {
-  const CinemaxHomePage({
+class TheatreHomePage extends StatefulWidget {
+  const TheatreHomePage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<CinemaxHomePage> createState() => _CinemaxHomePageState();
+  State<TheatreHomePage> createState() => _TheatreHomePageState();
 }
 
-class _CinemaxHomePageState extends State<CinemaxHomePage>
+class _TheatreHomePageState extends State<TheatreHomePage>
     with SingleTickerProviderStateMixin {
   late int _selectedIndex;
 
@@ -178,14 +176,30 @@ class _CinemaxHomePageState extends State<CinemaxHomePage>
     return Scaffold(
         drawer: const DrawerWidget(),
         appBar: AppBar(
-          title: const Text(
-            'TheatreTime',
+          toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+          centerTitle: true,
+          title: Text(
+            'Theatre Time',
             style: TextStyle(
               fontFamily: 'PoppinsSB',
+              fontSize: 25,
+              color: isDark ? const Color(0xFFF7F7F7) : const Color(0xFF202124),
+            ),
+          ),
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(
+                Icons.menu,
+                color:
+                    isDark ? const Color(0xFFF7F7F7) : const Color(0xFF202124),
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),
           actions: [
             IconButton(
+                color:
+                    isDark ? const Color(0xFFF7F7F7) : const Color(0xFF202124),
                 onPressed: () {
                   showSearch(
                       context: context,
@@ -202,7 +216,7 @@ class _CinemaxHomePageState extends State<CinemaxHomePage>
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-            color: const Color(0xFFF57C00),
+            color: Colors.transparent,
             boxShadow: [
               BoxShadow(
                 blurRadius: 20,
@@ -215,16 +229,19 @@ class _CinemaxHomePageState extends State<CinemaxHomePage>
               padding:
                   const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
               child: GNav(
-                rippleColor: Colors.grey[300]!,
+                rippleColor: Colors.grey[700]!,
                 hoverColor: Colors.grey[100]!,
                 gap: 8,
-                activeColor: Colors.black,
+                activeColor: isDark
+                    ? const Color(0xFFF7F7F7).withOpacity(0.5)
+                    : const Color(0xFF202124),
                 iconSize: 24,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 duration: const Duration(milliseconds: 400),
-                tabBackgroundColor: Colors.grey[100]!,
-                color: Colors.black,
+                tabBackgroundColor: Colors.transparent,
+                color:
+                    isDark ? const Color(0xFFF7F7F7) : const Color(0xFF202124),
                 tabs: const [
                   GButton(
                     icon: FontAwesomeIcons.clapperboard,
@@ -233,10 +250,6 @@ class _CinemaxHomePageState extends State<CinemaxHomePage>
                   GButton(
                     icon: FontAwesomeIcons.tv,
                     text: ' TV Shows',
-                  ),
-                  GButton(
-                    icon: Icons.newspaper,
-                    text: 'News',
                   ),
                   GButton(
                     icon: FontAwesomeIcons.compass,
@@ -257,10 +270,9 @@ class _CinemaxHomePageState extends State<CinemaxHomePage>
           color: isDark ? const Color(0xFF202124) : const Color(0xFFF7F7F7),
           child: IndexedStack(
             index: _selectedIndex,
-            children: const <Widget>[
+            children: const [
               MainMoviesDisplay(),
               MainTVDisplay(),
-              NewsPage(),
               DiscoverPage(),
             ],
           ),

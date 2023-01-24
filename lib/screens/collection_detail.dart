@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:provider/provider.dart';
-import '../constants/app_constants.dart';
 import 'package:flutter/material.dart';
-import '../provider/darktheme_provider.dart';
-import '../provider/imagequality_provider.dart';
+import 'package:provider/provider.dart';
+
 import '/api/endpoints.dart';
 import '/constants/api_constants.dart';
 import '/models/movie.dart';
 import '/screens/movie_widgets.dart';
+import '../constants/app_constants.dart';
+import '../provider/darktheme_provider.dart';
+import '../provider/imagequality_provider.dart';
 
 class CollectionDetailsWidget extends StatefulWidget {
   final BelongsToCollection? belongsToCollection;
@@ -81,10 +82,10 @@ class CollectionDetailsWidgetState extends State<CollectionDetailsWidget>
                               begin: FractionalOffset.bottomCenter,
                               end: FractionalOffset.topCenter,
                               colors: [
-                                const Color(0xFFF57C00),
-                                const Color(0xFFF57C00).withOpacity(0.3),
-                                const Color(0xFFF57C00).withOpacity(0.2),
-                                const Color(0xFFF57C00).withOpacity(0.1),
+                                const Color(0xFFECB718),
+                                const Color(0xFFECB718).withOpacity(0.3),
+                                const Color(0xFFECB718).withOpacity(0.2),
+                                const Color(0xFFECB718).withOpacity(0.1),
                               ],
                               stops: const [
                                 0.0,
@@ -98,7 +99,7 @@ class CollectionDetailsWidgetState extends State<CollectionDetailsWidget>
               ),
               Expanded(
                 child: Container(
-                  color: const Color(0xFFF57C00),
+                  color: const Color(0xFFECB718),
                 ),
               )
             ],
@@ -117,7 +118,7 @@ class CollectionDetailsWidgetState extends State<CollectionDetailsWidget>
                     child: IconButton(
                       icon: const Icon(
                         Icons.arrow_back,
-                        color: Color(0xFFF57C00),
+                        color: Color(0xFFECB718),
                       ),
                       onPressed: () {
                         Navigator.pop(context);

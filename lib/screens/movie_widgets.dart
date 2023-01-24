@@ -38,7 +38,6 @@ import 'common_widgets.dart';
 import 'crew_detail.dart';
 import 'genremovies.dart';
 import 'main_movies_list.dart';
-import 'movie_stream.dart';
 
 class MainMoviesDisplay extends StatefulWidget {
   const MainMoviesDisplay({
@@ -161,18 +160,6 @@ class DiscoverMoviesState extends State<DiscoverMovies>
     final isDark = Provider.of<DarkthemeProvider>(context).darktheme;
     return Column(
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const <Widget>[
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Featured movies',
-                style: kTextHeaderStyle,
-              ),
-            ),
-          ],
-        ),
         SizedBox(
           width: double.infinity,
           height: 350,
@@ -268,7 +255,7 @@ class DiscoverMoviesState extends State<DiscoverMovies>
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(color: Color(0xFFECB718))))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;
@@ -426,7 +413,7 @@ class ScrollingMoviesState extends State<ScrollingMovies>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   child: const Padding(
                     padding: EdgeInsets.only(left: 8.0, right: 8.0),
                     child: Text('View all'),
@@ -591,7 +578,7 @@ class ScrollingMoviesState extends State<ScrollingMovies>
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(color: Color(0xFFECB718))))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;
@@ -851,7 +838,7 @@ class MovieSocialLinksState extends State<MovieSocialLinks> {
                                         externalLinks!.facebookUsername!,
                                 icon: const Icon(
                                   SocialIcons.facebook_f,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -863,7 +850,7 @@ class MovieSocialLinksState extends State<MovieSocialLinks> {
                                         externalLinks!.instagramUsername!,
                                 icon: const Icon(
                                   SocialIcons.instagram,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -874,7 +861,7 @@ class MovieSocialLinksState extends State<MovieSocialLinks> {
                                         externalLinks!.twitterUsername!,
                                 icon: const Icon(
                                   SocialIcons.twitter,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -981,7 +968,7 @@ class BelongsToCollectionWidgetState extends State<BelongsToCollectionWidget> {
                                       'Belongs to the ${belongsToCollection!.name!}',
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
-                                          backgroundColor: Color(0xFFF57C00)),
+                                          backgroundColor: Color(0xFFECB718)),
                                     ),
                                   ),
                                 ),
@@ -1003,7 +990,7 @@ class BelongsToCollectionWidgetState extends State<BelongsToCollectionWidget> {
                                                       BorderRadius.circular(
                                                           5.0),
                                                   side: const BorderSide(
-                                                      color: Color(0xFFF57C00))))),
+                                                      color: Color(0xFFECB718))))),
                                       onPressed: () {
                                         Navigator.push(context,
                                             MaterialPageRoute(
@@ -1119,7 +1106,7 @@ class CollectionOverviewWidgetState extends State<CollectionOverviewWidget> {
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -1390,7 +1377,7 @@ class PartsListState extends State<PartsList> {
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -1995,21 +1982,8 @@ class WatchNowButtonState extends State<WatchNowButton> {
         style: ButtonStyle(
             maximumSize: MaterialStateProperty.all(Size(buttonWidth!, 50)),
             backgroundColor:
-                MaterialStateProperty.all(const Color(0xFFF57C00))),
-        onPressed: () async {
-          mixpanel.track('Most viewed movie pages', properties: {
-            'Movie name': widget.movieName,
-            'Movie id': widget.movieId,
-            'Is Movie adult?': widget.adult,
-          });
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return MovieStream(
-              streamUrl:
-                  'https://www.2embed.to/embed/tmdb/movie?id=${widget.movieId}',
-              movieName: widget.movieName!,
-            );
-          }));
-        },
+                MaterialStateProperty.all(const Color(0xFFECB718))),
+        onPressed: null,
         child: Row(
           children: [
             const Padding(
@@ -2102,7 +2076,7 @@ class GenreDisplayState extends State<GenreDisplay>
                                 side: const BorderSide(
                                     width: 2,
                                     style: BorderStyle.solid,
-                                    color: Color(0xFFF57C00)),
+                                    color: Color(0xFFECB718)),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               label: Text(
@@ -2547,7 +2521,7 @@ class CastTabState extends State<CastTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -2781,7 +2755,7 @@ class CrewTabState extends State<CrewTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -3023,7 +2997,7 @@ class MovieRecommendationsTabState extends State<MovieRecommendationsTab>
                                                       children: <Widget>[
                                                         const Icon(Icons.star,
                                                             color: Color(
-                                                                0xFFF57C00)),
+                                                                0xFFECB718)),
                                                         Text(
                                                           movieList![index]
                                                               .voteAverage!
@@ -3090,7 +3064,7 @@ class MovieRecommendationsTabState extends State<MovieRecommendationsTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -3332,7 +3306,7 @@ class SimilarMoviesTabState extends State<SimilarMoviesTab>
                                                       children: <Widget>[
                                                         const Icon(Icons.star,
                                                             color: Color(
-                                                                0xFFF57C00)),
+                                                                0xFFECB718)),
                                                         Text(
                                                           movieList![index]
                                                               .voteAverage!
@@ -3399,7 +3373,7 @@ class SimilarMoviesTabState extends State<SimilarMoviesTab>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -3651,7 +3625,7 @@ class ParticularGenreMoviesState extends State<ParticularGenreMovies> {
                                                                 const Icon(
                                                                     Icons.star,
                                                                     color: Color(
-                                                                        0xFFF57C00)),
+                                                                        0xFFECB718)),
                                                                 Text(
                                                                   moviesList![
                                                                           index]
@@ -3720,7 +3694,7 @@ class ParticularGenreMoviesState extends State<ParticularGenreMovies> {
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(color: Color(0xFFECB718))))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;
@@ -3973,7 +3947,7 @@ class ParticularStreamingServiceMoviesState
                                                                 const Icon(
                                                                     Icons.star,
                                                                     color: Color(
-                                                                        0xFFF57C00)),
+                                                                        0xFFECB718)),
                                                                 Text(
                                                                   moviesList![
                                                                           index]
@@ -4042,7 +4016,7 @@ class ParticularStreamingServiceMoviesState
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: const BorderSide(color: Color(0xFFF57C00))))),
+                          side: const BorderSide(color: Color(0xFFECB718))))),
               onPressed: () {
                 setState(() {
                   requestFailed = false;
@@ -4085,7 +4059,7 @@ class StreamingServicesWidget extends StatelessWidget {
           height: 60,
           width: 200,
           decoration: BoxDecoration(
-              color: const Color(0xFFF57C00),
+              color: const Color(0xFFECB718),
               borderRadius: BorderRadius.circular(15)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -4193,7 +4167,7 @@ class GenreListGridState extends State<GenreListGrid>
                                         width: 125,
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
-                                            color: const Color(0xFFF57C00),
+                                            color: const Color(0xFFECB718),
                                             borderRadius:
                                                 BorderRadius.circular(15)),
                                         child: Text(
@@ -4240,7 +4214,7 @@ class GenreListGridState extends State<GenreListGrid>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -4283,7 +4257,7 @@ class TopButtonState extends State<TopButton> {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    side: const BorderSide(color: Color(0xFFF57C00))))),
+                    side: const BorderSide(color: Color(0xFFECB718))))),
         onPressed: () {
           Navigator.pop(context);
         },
@@ -4332,7 +4306,7 @@ class _WatchProvidersButtonState extends State<WatchProvidersButton> {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    side: const BorderSide(color: Color(0xFFF57C00))))),
+                    side: const BorderSide(color: Color(0xFFECB718))))),
         onPressed: () {
           widget.onTap!();
         },
@@ -4406,7 +4380,7 @@ class _WatchProvidersDetailsState extends State<WatchProvidersDetails>
                     child: TabBar(
                       controller: tabController,
                       isScrollable: true,
-                      indicatorColor: const Color(0xFFF57C00),
+                      indicatorColor: const Color(0xFFECB718),
                       indicatorWeight: 3,
                       unselectedLabelColor: Colors.white54,
                       indicatorSize: TabBarIndicatorSize.tab,
@@ -4551,7 +4525,7 @@ class _WatchProvidersDetailsState extends State<WatchProvidersDetails>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -4805,7 +4779,7 @@ class CollectionMoviesState extends State<CollectionMovies> {
                                                         fontFamily: 'Poppins'),
                                                   ),
                                                   const Icon(Icons.star,
-                                                      color: Color(0xFFF57C00)),
+                                                      color: Color(0xFFECB718)),
                                                 ],
                                               ),
                                             ],

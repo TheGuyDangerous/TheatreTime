@@ -417,7 +417,7 @@ class PersonMovieListWidgetState extends State<PersonMovieListWidget>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -677,7 +677,7 @@ class PersonTVListWidgetState extends State<PersonTVListWidget>
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               side:
-                                  const BorderSide(color: Color(0xFFF57C00))))),
+                                  const BorderSide(color: Color(0xFFECB718))))),
                   onPressed: () {
                     setState(() {
                       requestFailed = false;
@@ -742,17 +742,17 @@ class _PersonAboutWidgetState extends State<PersonAboutWidget>
                         : 'We don\'t have a biography for this person',
                     trimLines: 4,
                     style: kTextSmallAboutBodyStyle,
-                    colorClickableText: const Color(0xFFF57C00),
+                    colorClickableText: const Color(0xFFECB718),
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'read more',
                     trimExpandedText: 'read less',
                     lessStyle: const TextStyle(
                         fontSize: 14,
-                        color: Color(0xFFF57C00),
+                        color: Color(0xFFECB718),
                         fontWeight: FontWeight.bold),
                     moreStyle: const TextStyle(
                         fontSize: 14,
-                        color: Color(0xFFF57C00),
+                        color: Color(0xFFECB718),
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -837,7 +837,7 @@ class PersonSocialLinksState extends State<PersonSocialLinks> {
                                         externalLinks!.facebookUsername!,
                                 icon: const Icon(
                                   SocialIcons.facebook_f,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -849,7 +849,7 @@ class PersonSocialLinksState extends State<PersonSocialLinks> {
                                         externalLinks!.instagramUsername!,
                                 icon: const Icon(
                                   SocialIcons.instagram,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
@@ -860,7 +860,7 @@ class PersonSocialLinksState extends State<PersonSocialLinks> {
                                         externalLinks!.twitterUsername!,
                                 icon: const Icon(
                                   SocialIcons.twitter,
-                                  color: Color(0xFFF57C00),
+                                  color: Color(0xFFECB718),
                                 ),
                               ),
                               SocialIconWidget(
