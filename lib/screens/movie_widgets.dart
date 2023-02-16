@@ -38,6 +38,7 @@ import 'common_widgets.dart';
 import 'crew_detail.dart';
 import 'genremovies.dart';
 import 'main_movies_list.dart';
+import 'movie_stream.dart';
 
 class MainMoviesDisplay extends StatefulWidget {
   const MainMoviesDisplay({
@@ -1983,7 +1984,20 @@ class WatchNowButtonState extends State<WatchNowButton> {
             maximumSize: MaterialStateProperty.all(Size(buttonWidth!, 50)),
             backgroundColor:
                 MaterialStateProperty.all(const Color(0xFFECB718))),
-        onPressed: null,
+        onPressed: () async {
+          mixpanel.track('Most viewed movie pages', properties: {
+            'Movie name': widget.movieName,
+            'Movie id': widget.movieId,
+            'Is Movie adult?': widget.adult,
+          });
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return MovieStream(
+              streamUrl:
+                  'https://www.2embed.to/embed/tmdb/movie?id=${widget.movieId}',
+              movieName: widget.movieName!,
+            );
+          }));
+        },
         child: Row(
           children: [
             const Padding(
@@ -4482,7 +4496,7 @@ class _WatchProvidersDetailsState extends State<WatchProvidersDetails>
                                           const Expanded(
                                               flex: 6,
                                               child: Text(
-                                                'Cinemax',
+                                                'Theatre Time',
                                                 textAlign: TextAlign.center,
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,

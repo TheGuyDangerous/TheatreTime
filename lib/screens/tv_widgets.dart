@@ -161,18 +161,6 @@ class DiscoverTVState extends State<DiscoverTV>
     final isDark = Provider.of<DarkthemeProvider>(context).darktheme;
     return Column(
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const <Widget>[
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Featured TV shows',
-                style: kTextHeaderStyle,
-              ),
-            ),
-          ],
-        ),
         SizedBox(
           width: double.infinity,
           height: 350,
@@ -5070,7 +5058,7 @@ class _TVWatchProvidersDetailsState extends State<TVWatchProvidersDetails>
                                           const Expanded(
                                               flex: 6,
                                               child: Text(
-                                                'Cinemax',
+                                                'Theatre Time',
                                                 textAlign: TextAlign.center,
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,

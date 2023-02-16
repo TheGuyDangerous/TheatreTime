@@ -18,6 +18,7 @@ import 'provider/adultmode_provider.dart';
 import 'screens/common_widgets.dart';
 import 'screens/movie_widgets.dart';
 import 'screens/search_view.dart';
+import 'screens/news_screen.dart';
 
 DarkthemeProvider themeChangeProvider = DarkthemeProvider();
 MixpanelProvider mixpanelProvider = MixpanelProvider();
@@ -65,8 +66,6 @@ class TheatreTime extends StatefulWidget {
 class _TheatreTimeState extends State<TheatreTime>
     with ChangeNotifier, WidgetsBindingObserver {
   bool? isFirstLaunch;
-
-  // late FirebaseMessaging messaging;
 
   void firstTimeCheck() async {
     final prefs = await SharedPreferences.getInstance();
@@ -252,6 +251,10 @@ class _TheatreHomePageState extends State<TheatreHomePage>
                     text: ' TV Shows',
                   ),
                   GButton(
+                    icon: Icons.newspaper,
+                    text: 'News',
+                  ),
+                  GButton(
                     icon: FontAwesomeIcons.compass,
                     text: 'Discover',
                   ),
@@ -273,6 +276,7 @@ class _TheatreHomePageState extends State<TheatreHomePage>
             children: const [
               MainMoviesDisplay(),
               MainTVDisplay(),
+              NewsPage(),
               DiscoverPage(),
             ],
           ),
