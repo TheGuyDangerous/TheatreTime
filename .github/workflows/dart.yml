@@ -16,7 +16,7 @@ jobs:
       - name: Setup Java environment
         uses: actions/setup-java@v2
         with:
-          java-version: '8'
+          java-version: '12.x'
           distribution: 'adopt'
           architecture: 'x64'
           check-latest: false
