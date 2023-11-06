@@ -98,10 +98,13 @@ flutter:
   fonts:
     - family: PoppinsBold
       fonts:
-        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
     - family: PoppinsSB
       fonts:
-        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
     - family: SocialIcons
       fonts:
         - asset: assets/fonts/SocialIcons.ttf
