@@ -16,17 +16,16 @@ jobs:
       - name: Setup Java environment
         uses: actions/setup-java@v2
         with:
-          java-version: '12.x'
+          java-version: '8'
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v2
         with:
           path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
 
       - name: Setup Flutter environment
         uses: subosito/flutter-action@v1
@@ -35,18 +34,6 @@ jobs:
 
       - name: Get Flutter dependencies
         run: flutter pub get
-
-      - name: Enable Multidex
-        run: |
-          echo 'android {' >> android/app/build.gradle
-          echo '  ...' >> android/app/build.gradle
-          echo '  defaultConfig {' >> android/app/build.gradle
-          echo '    ...' >> android/app/build.gradle
-          echo '    multiDexEnabled true' >> android/app/build.gradle
-          echo '  }' >> android/app/build.gradle
-          echo '  ...' >> android/app/build.gradle
-          echo '}' >> android/app/build.gradle
-        shell: bash
 
       - name: Build APK
         run: flutter build apk --split-per-abi --release
