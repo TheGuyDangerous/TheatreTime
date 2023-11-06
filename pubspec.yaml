@@ -96,9 +96,6 @@ flutter:
     - assets/m3u8/
 
   fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/poppins/Poppins-Regular.ttf
     - family: PoppinsBold
       fonts:
         - asset: assets/fonts/poppins/Poppins-Bold.ttf
