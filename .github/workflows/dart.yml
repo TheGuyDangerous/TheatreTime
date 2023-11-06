@@ -14,17 +14,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Java environment
-        uses: actions/setup-java@v3.13.0
+        uses: actions/setup-java@v2
         with:
-          java-version: '12.'
-
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          java-version: '12.x'
 
 
       - name: Setup Flutter environment
