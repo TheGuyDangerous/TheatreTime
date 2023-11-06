@@ -16,7 +16,11 @@ jobs:
       - name: Setup Java environment
         uses: actions/setup-java@v2
         with:
-          java-version: '12.x'
+          java-version: '8'
+          distribution: 'adopt'
+          architecture: 'x64'
+          check-latest: false
+          server-id: github
 
 
       - name: Setup Flutter environment
